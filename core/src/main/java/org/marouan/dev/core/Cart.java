@@ -8,10 +8,23 @@ public record Cart(List<Movie> movies) {
     movies.add(movie);
   }
 
+  public BigDecimal calculateDiscountedPrice(final Discount discount) {
+    return movies.stream()
+        .map(movie -> movie.calculateDiscountedPrice(discount))
+        .reduce(BigDecimal::add)
+        .orElse(BigDecimal.ZERO);
+  }
+
   public BigDecimal calculatePrice() {
     return movies.stream()
         .map(Movie::price)
         .reduce(BigDecimal::add)
         .orElse(BigDecimal.ZERO);
+  }
+
+  public Integer getNumberOfMovieParts(final String movieTitle) {
+    return Math.toIntExact(movies.stream()
+        .filter(movie -> movieTitle.equals(movie.title()))
+        .count());
   }
 }
