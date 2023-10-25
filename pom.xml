@@ -19,25 +19,48 @@
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.jupiter.version>5.10.0</junit.jupiter.version>
+    <fasterxml.jackson.core.version>2.15.0</fasterxml.jackson.core.version>
   </properties>
 
-  <dependencies>
+  <dependencyManagement>
 
-    <!-- Test Dependencies-->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
+    <dependencies>
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
+      <dependency>
+        <groupId>org.marouan.dev</groupId>
+        <artifactId>core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
-  </dependencies>
+      <dependency>
+        <groupId>org.marouan.dev</groupId>
+        <artifactId>infra</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${fasterxml.jackson.core.version}</version>
+      </dependency>
+
+      <!-- Test Dependencies-->
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+    </dependencies>
+
+  </dependencyManagement>
 
 </project>

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Back to the Future",
+    "part": 1,
+    "price": 15
+  },
+  {
+    "title": "Back to the Future",
+    "part": 2,
+    "price": 15
+  },
+  {
+    "title": "Back to the Future",
+    "part": 3,
+    "price": 15
+  },
+  {
+    "title": "La chèvre",
+    "part": 1,
+    "price": 20
+  }
+]

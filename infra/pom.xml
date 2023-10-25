@@ -11,4 +11,19 @@
 
   <artifactId>infra</artifactId>
 
+  <dependencies>
+
+    <dependency>
+      <groupId>org.marouan.dev</groupId>
+      <artifactId>core</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+
+  </dependencies>
+
 </project>

@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.marouan.dev.core.domain.Cart;
+import org.marouan.dev.core.domain.Discount;
+import org.marouan.dev.core.domain.DiscountedCart;
+import org.marouan.dev.core.domain.Movie;
 
 class CartTest {
 

@@ -1,4 +1,4 @@
-package org.marouan.dev.core;
+package org.marouan.dev.core.domain;
 
 import java.math.BigDecimal;
 
