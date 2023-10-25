@@ -9,6 +9,9 @@ public record Cart(List<Movie> movies) {
   }
 
   public BigDecimal calculatePrice() {
-    return new BigDecimal(0);
+    return movies.stream()
+        .map(Movie::price)
+        .reduce(BigDecimal::add)
+        .orElse(BigDecimal.ZERO);
   }
 }
