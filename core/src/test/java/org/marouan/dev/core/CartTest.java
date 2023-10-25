@@ -24,4 +24,21 @@ class CartTest {
     // THEN
     assertEquals(price, new BigDecimal(55));
   }
+
+  @Test
+  void calculatePrice_shouldReturnCartTotalPriceAndApplyDiscount_whenTwoBTTFPartsBought() {
+    // GIVEN
+    final List<Movie> movies = List.of(
+        new Movie("Back to the Future", 1, new BigDecimal(15)),
+        new Movie("Back to the Future", 2, new BigDecimal(15)),
+        new Movie("Interstellar", 1, new BigDecimal(20))
+    );
+    final Cart cart = new Cart(movies);
+
+    // WHEN
+    final BigDecimal price = cart.calculatePrice();
+
+    // THEN
+    assertEquals(price, new BigDecimal(47));
+  }
 }
