@@ -19,6 +19,6 @@ public record DiscountedCart(Cart cart, List<Discount> discounts) {
 
   private boolean isMatchingDiscount(final Discount discount) {
     return discount.numberOfParts()
-        .equals(cart.getNumberOfMovieParts(discount.movieTitle()));
+        .equals(cart.getNumberOfDifferentMovieParts(discount.movieTitle()));
   }
 }

@@ -22,9 +22,10 @@ public record Cart(List<Movie> movies) {
         .orElse(BigDecimal.ZERO);
   }
 
-  public Integer getNumberOfMovieParts(final String movieTitle) {
+  public Integer getNumberOfDifferentMovieParts(final String movieTitle) {
     return Math.toIntExact(movies.stream()
         .filter(movie -> movieTitle.equals(movie.title()))
-        .count());
+        .map(Movie::part)
+        .distinct().count());
   }
 }
