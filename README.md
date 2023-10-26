@@ -3,6 +3,7 @@ A DVD store application, like in the 20s :)
 
 ## Built With
 - Clean architecture
+- TDD
 - Java 17
 - Maven 3
 - JUnit 5
