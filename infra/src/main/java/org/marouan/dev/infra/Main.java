@@ -1,25 +1,16 @@
 package org.marouan.dev.infra;
 
-import java.util.List;
-import org.marouan.dev.core.domain.Cart;
-import org.marouan.dev.core.domain.Discount;
-import org.marouan.dev.core.domain.DiscountedCart;
-import org.marouan.dev.core.domain.Movie;
-import org.marouan.dev.core.repository.DiscountRepository;
-import org.marouan.dev.infra.out.JSONReaderMovieRepository;
-import org.marouan.dev.infra.out.mock.MockDiscountRepository;
+import java.math.BigDecimal;
+import org.marouan.dev.core.usecase.CheckoutMovieOrderUseCase;
 
 public class Main {
 
   public static void main(String[] args) {
-    final DiscountRepository discountRepository = new MockDiscountRepository();
-    final JSONReaderMovieRepository jsonReaderMovieRepository = new JSONReaderMovieRepository();
+    final UseCaseFactory useCaseFactory = new UseCaseFactory();
+    final CheckoutMovieOrderUseCase checkoutMovieOrderUseCase = useCaseFactory.createCheckoutMovieOrderUseCase();
 
-    final List<Discount> currentDiscounts = discountRepository.getAvailableDiscounts();
-    final List<Movie> movies = jsonReaderMovieRepository.getUserMovies();
-    final Cart cart = new Cart(movies);
-    final DiscountedCart discountedCart = new DiscountedCart(cart, currentDiscounts);
+    final BigDecimal cartPrice = checkoutMovieOrderUseCase.process();
 
-    System.out.printf("The price of your cart is: %s", discountedCart.calculatePrice());
+    System.out.printf("The price of your cart is: %s", cartPrice);
   }
 }
