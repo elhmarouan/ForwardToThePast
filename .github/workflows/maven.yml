@@ -31,4 +31,4 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run with Maven
-      run: mvn exec:java -pl infra
+      run: mvn -B package --file pom.xml exec:java -pl infra
